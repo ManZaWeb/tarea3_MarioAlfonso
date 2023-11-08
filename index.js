@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const posicionPrimeraA = nombreCompleto.toLowerCase().indexOf('a') + 1;
 
         if (posicionPrimeraA > 0) {
-            return `La primera letra 'A' de tu nombre está en la posición ${posicionPrimeraA}`;
+            return `${posicionPrimeraA}`;
         } else {
             return "No se encontró ninguna letra 'A' en tu nombre.";
         }
@@ -44,20 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
     function encontrarUltimaA(cadena) {
         for (let i = cadena.length - 1; i >= 0; i--) {
             if (cadena[i].toLowerCase() === 'a') {
-                return `La ultima letra A de tu nombre está en la posición ${i + 1}`
+                return `${i + 1}`
             }
         }
         return "No se encontro ninguna letra A en tu nombre" // Retorna null si no se encuentra ninguna "a".
+    }
+
+    function tresLetras(cadena) {
+        return cadena.substring(3);
     }
 
 
     document.open()
     document.write(
         `<h1>Práctica 3 - DWEC</h1>` +
-        `<div>Buenos días ${nombre}</div>` +
-        `<div>La longitud de su nombre completo es ${nombreCompleto.length}</div>` +
-        `<div>${encontrarPrimeraLetraA(nombreCompleto)}</div>` +
-        `<div>${encontrarUltimaA(nombreCompleto)}</div>`
+        `<div>Buenos días <b>${nombre}</b></div>` +
+        `<div>La longitud de su nombre completo es <b>${nombreCompleto.length}</b></div>` +
+        `<div>La <b>primera letra A</b> de tu nombre está en la posición ${encontrarPrimeraLetraA(nombreCompleto)}</div>` +
+        `<div>La <b>ultima letra A</b> de tu nombre está en la posición ${encontrarUltimaA(nombreCompleto)}</div>` +
+        `<div>Tu nombre <b>menos las 3 primeras letras</b> es <b>${tresLetras(nombreCompleto)}</b></div>`
     )
     document.close()
 
