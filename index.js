@@ -19,14 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const solicitarFechaN = () => {
         let fechaN;
         do {
-            fechaN = prompt("INTRODUCE TU FECHA DE NACIMIENTO");
+            fechaN = prompt("INTRODUCE TU FECHA DE NACIMIENTO AAAA/MM/DD");
         } while (fechaN === "");
         return fechaN; // Devolver la fecha de nacimiento ingresada
     }
 
-    const nombre = solicitarNombre();
-    const apellidos = solicitarApellidos();
-    const fechaN = solicitarFechaN();
+    const nombre = solicitarNombre()
+    const apellidos = solicitarApellidos()
+    const fechaN = solicitarFechaN()
+    const fechaNacimiento = new Date(fechaN);
 
     const nombreCompleto = `${nombre} ${apellidos}`;
 
@@ -47,4 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     primeraA.innerText = `La primera letra A de tu nombre está en la posición ${nombreCompleto.indexOf('A')}`
     document.body.appendChild(primeraA)
     //funciona pero si no encuentra nada resultado -1
+
+    
+
 })
