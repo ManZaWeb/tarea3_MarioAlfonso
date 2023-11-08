@@ -28,27 +28,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const apellidos = solicitarApellidos()
     const fechaN = solicitarFechaN()
     const fechaNacimiento = new Date(fechaN);
-
     const nombreCompleto = `${nombre} ${apellidos}`;
 
-    const h1 = document.createElement("h1")
-    h1.innerText = "Práctica 3 - DWEC"
-    document.body.appendChild(h1)
+    function encontrarPrimeraLetraA(nombreCompleto) {
+        const posicionPrimeraA = nombreCompleto.toLowerCase().indexOf('a') + 1;
 
-    const saludo = document.createElement("div")
-    saludo.innerText = `Buenos días ${nombre}`
-    document.body.appendChild(saludo)
-
-    const longitud = document.createElement("div")
-    longitud.innerText = `La longitud de su nombre completo es ${nombreCompleto.length}`
-    document.body.appendChild(longitud)
+        if (posicionPrimeraA > 0) {
+            return `La primera letra 'A' de tu nombre está en la posición ${posicionPrimeraA}`;
+        } else {
+            return "No se encontró ninguna letra 'A' en tu nombre.";
+        }
+    }
 
 
-    const primeraA = document.createElement("div")
-    primeraA.innerText = `La primera letra A de tu nombre está en la posición ${nombreCompleto.indexOf('A')}`
-    document.body.appendChild(primeraA)
-    //funciona pero si no encuentra nada resultado -1
+    function encontrarUltimaA(cadena) {
+        for (let i = cadena.length - 1; i >= 0; i--) {
+            if (cadena[i].toLowerCase() === 'a') {
+                return `La ultima letra A de tu nombre está en la posición ${i + 1}`
+            }
+        }
+        return "No se encontro ninguna letra A en tu nombre" // Retorna null si no se encuentra ninguna "a".
+    }
 
-    
+
+    document.open()
+    document.write(
+        `<h1>Práctica 3 - DWEC</h1>` +
+        `<div>Buenos días ${nombre}</div>` +
+        `<div>La longitud de su nombre completo es ${nombreCompleto.length}</div>` +
+        `<div>${encontrarPrimeraLetraA(nombreCompleto)}</div>` +
+        `<div>${encontrarUltimaA(nombreCompleto)}</div>`
+    )
+    document.close()
 
 })
