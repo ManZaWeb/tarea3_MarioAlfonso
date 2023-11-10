@@ -103,7 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
         `<div>Tu nombre <b>menos las 3 primeras letras</b> es <b>${tresLetras(nombreCompleto)}</b></div>` +
         `<div>Tu nombre todo en <b>mayúsculas</b> es <b>${mayus(nombreCompleto)}</b></div>` +
         `<div>Tu <b>edad</b> es <b>${calcularEdad(fechaNacimiento)}</b></div>` + 
-        `<div>Naciste un feliz dia de <b>${estacion(fechaNacimiento)}</b> del año <b>${fechaNacimiento.getFullYear()}</b></div>`
+        `<div>Naciste un feliz dia de <b>${estacion(fechaNacimiento)}</b> del año <b>${fechaNacimiento.getFullYear()}</b></div>` +
+        `<div>El <b>coseno de 180 </b>es <b>${Math.cos(Math.PI)}</b></div>`  //180 grados radianes es igual a PI
+
 
 
         )
