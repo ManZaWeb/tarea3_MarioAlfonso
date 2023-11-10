@@ -78,6 +78,20 @@ document.addEventListener("DOMContentLoaded", () => {
         return edad;
     }
 
+    function estacion(fechaNacimiento) {
+        const mesNacimiento = fechaNacimiento.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+    
+        if ((mesNacimiento >= 3 && mesNacimiento <= 5) || (mesNacimiento === 6 && fechaNacimiento.getDate() < 21)) {
+            return "Primavera";
+        } else if ((mesNacimiento >= 6 && mesNacimiento <= 8) || (mesNacimiento === 9 && fechaNacimiento.getDate() < 23)) {
+            return "Verano";
+        } else if ((mesNacimiento >= 9 && mesNacimiento <= 11) || (mesNacimiento === 12 && fechaNacimiento.getDate() < 21)) {
+            return "Otoño";
+        } else {
+            return "Invierno";
+        }
+    }
+
 
     document.open()
     document.write(
@@ -88,7 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
         `<div>La <b>ultima letra A</b> de tu nombre está en la posición ${encontrarUltimaA(nombreCompleto)}</div>` +
         `<div>Tu nombre <b>menos las 3 primeras letras</b> es <b>${tresLetras(nombreCompleto)}</b></div>` +
         `<div>Tu nombre todo en <b>mayúsculas</b> es <b>${mayus(nombreCompleto)}</b></div>` +
-        `<div>Tu <b>edad</b> es <b>${calcularEdad(fechaNacimiento)}</b></div>`
+        `<div>Tu <b>edad</b> es <b>${calcularEdad(fechaNacimiento)}</b></div>` + 
+        `<div>Naciste un feliz dia de <b>${estacion(fechaNacimiento)}</b> del año <b>${fechaNacimiento.getFullYear()}</b></div>`
+
 
         )
     document.close()
