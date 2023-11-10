@@ -58,6 +58,26 @@ document.addEventListener("DOMContentLoaded", () => {
         return cadena.toUpperCase()
     }
 
+    function calcularEdad(fechaNacimiento) {
+        const ahora = new Date();
+        const anioActual = ahora.getFullYear();
+        const mesActual = ahora.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+        const diaActual = ahora.getDate();
+    
+        const anioNacimiento = fechaNacimiento.getFullYear();
+        const mesNacimiento = fechaNacimiento.getMonth() + 1;
+        const diaNacimiento = fechaNacimiento.getDate();
+    
+        let edad = anioActual - anioNacimiento;
+    
+        // Ajuste si el cumpleaños aún no ha ocurrido este año
+        if (mesActual < mesNacimiento || (mesActual === mesNacimiento && diaActual < diaNacimiento)) {
+            edad--;
+        }
+    
+        return edad;
+    }
+
 
     document.open()
     document.write(
@@ -67,7 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
         `<div>La <b>primera letra A</b> de tu nombre está en la posición ${encontrarPrimeraLetraA(nombreCompleto)}</div>` +
         `<div>La <b>ultima letra A</b> de tu nombre está en la posición ${encontrarUltimaA(nombreCompleto)}</div>` +
         `<div>Tu nombre <b>menos las 3 primeras letras</b> es <b>${tresLetras(nombreCompleto)}</b></div>` +
-        `<div>Tu nombre todo en <b>mayúsculas</b> es <b>${mayus(nombreCompleto)}</b></div>` 
+        `<div>Tu nombre todo en <b>mayúsculas</b> es <b>${mayus(nombreCompleto)}</b></div>` +
+        `<div>Tu <b>edad</b> es <b>${calcularEdad(fechaNacimiento)}</b></div>`
 
         )
     document.close()
