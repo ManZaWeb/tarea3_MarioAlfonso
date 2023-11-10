@@ -51,7 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function tresLetras(cadena) {
-        return cadena.substring(3);
+        return cadena.substring(3)
+    }
+
+    function mayus(cadena){
+        return cadena.toUpperCase()
     }
 
 
@@ -62,8 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
         `<div>La longitud de su nombre completo es <b>${nombreCompleto.length}</b></div>` +
         `<div>La <b>primera letra A</b> de tu nombre está en la posición ${encontrarPrimeraLetraA(nombreCompleto)}</div>` +
         `<div>La <b>ultima letra A</b> de tu nombre está en la posición ${encontrarUltimaA(nombreCompleto)}</div>` +
-        `<div>Tu nombre <b>menos las 3 primeras letras</b> es <b>${tresLetras(nombreCompleto)}</b></div>`
-    )
+        `<div>Tu nombre <b>menos las 3 primeras letras</b> es <b>${tresLetras(nombreCompleto)}</b></div>` +
+        `<div>Tu nombre todo en <b>mayúsculas</b> es <b>${mayus(nombreCompleto)}</b></div>` 
+
+        )
     document.close()
 
 })
