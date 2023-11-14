@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const nombreCompleto = `${nombre} ${apellidos}`
     const numeros = [34, 66, 23, 75, 35, 19]
 
+    
+
     function encontrarPrimeraLetraA(nombreCompleto) {
         const posicionPrimeraA = nombreCompleto.toLowerCase().indexOf('a') + 1
 
@@ -104,10 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return nMayor
     }
 
-        function aleatorio(){
-            const nAle = Math.floor(Math.random() * 101)
-            return nAle
-        }
+    function aleatorio() {
+        const nAle = Math.floor(Math.random() * 101)
+        return nAle
+    }
 
 
 
@@ -126,13 +128,23 @@ document.addEventListener("DOMContentLoaded", () => {
         `<div>Naciste un feliz dia de <b>${estacion(fechaNacimiento)}</b> del año <b>${fechaNacimiento.getFullYear()}</b></div>` +
         `<div>El <b>coseno de 180 </b>es <b>${Math.cos(Math.PI)}</b></div>` +  //180 grados radianes es igual a PI 
         `<div>El numero mayor de <b>${numeros}</b> es ${mayor(numeros)}</div>` +
-        `<div>Ejemplo de un número aleatorio entre 0 y 100: <b> ${aleatorio()}</b></div>` +
-        `<button>Abrir Ventana</button>` +
-        `<button>Reiniciar</button>`
-
-
-
+        `<div>Ejemplo de un número aleatorio entre 0 y 100: <b> ${aleatorio()}</b></div>`
     )
     document.close()
+
+    const ventanaBtn = document.createElement('button')
+    ventanaBtn.innerText = "Abrir ventana"
+    document.body.appendChild(ventanaBtn)
+
+
+    const reiniciarBtn = document.createElement('button')
+    reiniciarBtn.innerText = "Reiniciar"
+    document.body.appendChild(reiniciarBtn)
+
+    reiniciarBtn.addEventListener("click", () => {
+        window.location.href = "/index.html"
+    })
+
+
 
 })
