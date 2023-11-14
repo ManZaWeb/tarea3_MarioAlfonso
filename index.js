@@ -136,6 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ventanaBtn.innerText = "Abrir ventana"
     document.body.appendChild(ventanaBtn)
 
+    ventanaBtn.addEventListener("click", () => {
+        window.location.href = "/iframeVentana.html"
+    })
+
 
     const reiniciarBtn = document.createElement('button')
     reiniciarBtn.innerText = "Reiniciar"
