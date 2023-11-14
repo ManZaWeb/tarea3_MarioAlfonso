@@ -1,3 +1,8 @@
+/**
+ * Autor Mario Alfonso Nuñez
+ * GitHub: https://github.com/ManZaWeb/tarea3_MarioAlfonso.git
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const solicitarNombre = () => {
