@@ -22,12 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const solicitarFechaN = () => {
-        let fechaN
+        let fechaN;
+        const regexFechaNacimiento = /^(19|20)\d\d\/(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])$/;
+
         do {
-            fechaN = prompt("INTRODUCE TU FECHA DE NACIMIENTO AAAA/MM/DD")
-        } while (fechaN === "")
-        return fechaN
+            fechaN = prompt("INTRODUCE TU FECHA DE NACIMIENTO AAAA/MM/DD");
+        } while (!regexFechaNacimiento.test(fechaN));
+        return fechaN;
     }
+    
 
     const nombre = solicitarNombre()
     const apellidos = solicitarApellidos()
